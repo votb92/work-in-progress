@@ -51,7 +51,7 @@ process Extract_Contigs{
     path headers from headers_ch
     path query from params.query
     output:
-    path 'extracted.txt' into extracted_contigs_ch
+    path 'extracted_contigs.txt' into extracted_contigs_ch
 
     """
     python ${script3} ${query} ${headers} extracted_contigs.txt
