@@ -4,3 +4,6 @@ fasta_file:
 blastn_db:
    class: Directory
    path: db/
+script1: 
+   class: File
+   path: scripts/Extract_Headers.py

@@ -13,11 +13,14 @@ hints:
 inputs:
   fasta_file: File
   blastn_db: Directory
+  script1: File
 outputs:
   Blastn_file:
     type: File
     outputSource: step1/blastn_result
-
+  Headers_txt:
+    type: File
+    outputSource: step2/Headers
 steps:
   step1:
     run: blast.cwl
@@ -26,3 +29,10 @@ steps:
       db_dir: blastn_db
     out:
       [blastn_result]
+  step2:
+    run: extract_headers.cwl
+    in:
+      script1: script1
+      blastn_result: step1/blastn_result
+    out:
+      [Headers]

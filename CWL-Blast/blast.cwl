@@ -17,8 +17,7 @@ inputs:
     inputBinding:
       position: 1
       prefix: "-db"
-      valueFrom: "${return inputs.db_dir.path + '/'
-                  + "SampleDB"}"
+      valueFrom: "${return inputs.db_dir.path + '/SampleDB'}"
   fasta_file:
     type: File
     inputBinding:
