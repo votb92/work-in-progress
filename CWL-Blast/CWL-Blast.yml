@@ -10,3 +10,6 @@ script1:
 script2:
    class: File
    path: scripts/Count_Nucleotides.py
+script3:
+   class: File
+   path: scripts/Extract_Contigs.py

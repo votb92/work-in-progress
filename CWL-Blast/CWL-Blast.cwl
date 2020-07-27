@@ -15,6 +15,7 @@ inputs:
   blastn_db: Directory
   script1: File
   script2: File
+  script3: File
 outputs:
   Blastn_file:
     type: File
@@ -22,6 +23,12 @@ outputs:
   Headers_txt:
     type: File
     outputSource: step2/Headers
+  NucleoCount_txt:
+    type: File
+    outputSource: step3/Count
+  Extracted_contigs_txt:
+    type: File
+    outputSource: step4/Extract
 steps:
   step1:
     run: blast.cwl
@@ -45,3 +52,11 @@ steps:
       headers_file: step2/Headers
     out:
       [Count]
+  step4:
+    run: extract_contigs.cwl
+    in:
+      script3: script3
+      fasta_file: fasta_file
+      headers_file: step2/Headers
+    out:
+      [Extract]
