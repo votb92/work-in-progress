@@ -1,0 +1,6 @@
+fasta_file:
+   class: File
+   path: data/sample.fa
+blastn_db:
+   class: Directory
+   path: db/
