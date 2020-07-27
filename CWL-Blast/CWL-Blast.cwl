@@ -14,6 +14,7 @@ inputs:
   fasta_file: File
   blastn_db: Directory
   script1: File
+  script2: File
 outputs:
   Blastn_file:
     type: File
@@ -33,6 +34,14 @@ steps:
     run: extract_headers.cwl
     in:
       script1: script1
-      blastn_result: step1/blastn_result
+      blastn_out: step1/blastn_result
     out:
       [Headers]
+  step3:
+    run: count_nucleotides.cwl
+    in:
+      script2: script2
+      fasta_file: fasta_file
+      headers_file: step2/Headers
+    out:
+      [Count]

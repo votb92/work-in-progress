@@ -4,6 +4,9 @@ fasta_file:
 blastn_db:
    class: Directory
    path: db/
-script1: 
+script1:
    class: File
    path: scripts/Extract_Headers.py
+script2:
+   class: File
+   path: scripts/Count_Nucleotides.py
